@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - LinkedIn Post Intelligence</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">LinkedIn Post Intelligence</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="analysis.html">Analysis</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="about-section">
+        <div class="container">
+            <h1>About This Project</h1>
+
+            <div class="about-card">
+                <h2>📋 Project Description</h2>
+                <p>
+                    The LinkedIn Post Intelligence System is an AI-powered tool designed to help content creators 
+                    understand and predict the engagement potential of their LinkedIn posts. By analyzing post content 
+                    using machine learning, the system provides actionable insights to improve content strategy and 
+                    maximize audience engagement.
+                </p>
+                <p>
+                    This system analyzes various aspects of post content including sentiment, structure, keywords, 
+                    and linguistic patterns to predict whether a post will receive High, Medium, or Low engagement 
+                    based on historical data patterns.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h2>🤖 Model Information</h2>
+                <h3>Machine Learning Model</h3>
+                <ul class="info-list">
+                    <li><strong>Algorithm:</strong> Random Forest Classifier</li>
+                    <li><strong>Feature Extraction:</strong> TF-IDF (Term Frequency-Inverse Document Frequency)</li>
+                    <li><strong>Training Data:</strong> 2,500 LinkedIn posts with engagement metrics</li>
+                    <li><strong>Target Variable:</strong> Engagement Score (High/Medium/Low)</li>
+                </ul>
+                
+                <h3>Engagement Calculation</h3>
+                <p>
+                    Engagement scores are calculated using a weighted formula that considers multiple interaction types:
+                </p>
+                <div class="formula-box">
+                    <code>Engagement = Likes + (2 × Comments) + (3 × Shares)</code>
+                </div>
+                <p class="formula-note">
+                    Comments and shares are weighted more heavily as they indicate stronger audience engagement.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h2>🔍 Explainability Method</h2>
+                <h3>Line-by-Line Content Attribution</h3>
+                <p>
+                    Our system uses advanced explainability techniques to identify which specific lines or sections 
+                    of your post contribute most to the predicted engagement level. This is achieved through:
+                </p>
+                <ul class="info-list">
+                    <li><strong>Feature Importance Analysis:</strong> Identifies which words and phrases have the strongest impact</li>
+                    <li><strong>Content Segmentation:</strong> Breaks down posts into individual lines for granular analysis</li>
+                    <li><strong>Impact Scoring:</strong> Calculates the contribution of each line to the overall prediction</li>
+                    <li><strong>Actionable Insights:</strong> Provides specific suggestions based on identified patterns</li>
+                </ul>
+            </div>
+
+            <div class="about-card">
+                <h2>⚖️ Ethical AI Practices</h2>
+                <h3>Our Commitment to Responsible AI</h3>
+                <ul class="info-list">
+                    <li>
+                        <strong>Transparency:</strong> We clearly explain how predictions are made and what factors 
+                        influence them, ensuring users understand the system's decision-making process.
+                    </li>
+                    <li>
+                        <strong>Privacy Protection:</strong> No personal information is stored. All analysis is performed 
+                        in real-time and data is not retained after the session ends.
+                    </li>
+                    <li>
+                        <strong>Bias Awareness:</strong> We acknowledge that the model is trained on historical data 
+                        which may contain inherent biases. Predictions should be used as guidance, not absolute truth.
+                    </li>
+                    <li>
+                        <strong>User Empowerment:</strong> The system is designed to assist, not replace, human judgment. 
+                        Users maintain full control over their content decisions.
+                    </li>
+                    <li>
+                        <strong>Authentic Content:</strong> We encourage users to prioritize genuine, valuable content 
+                        over gaming the system for engagement metrics.
+                    </li>
+                    <li>
+                        <strong>Continuous Improvement:</strong> We collect feedback to improve the system while 
+                        respecting user privacy and maintaining ethical standards.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="about-card">
+                <h2>⚠️ Limitations & Disclaimers</h2>
+                <ul class="info-list">
+                    <li>Predictions are based on historical patterns and may not account for current trends or events</li>
+                    <li>Actual engagement depends on many external factors including timing, audience, and platform algorithms</li>
+                    <li>The system should be used as a guide to inform content strategy, not as a guarantee of results</li>
+                    <li>Model performance may vary across different content types and industries</li>
+                </ul>
+            </div>
+
+            <div class="about-card">
+                <h2>🛠️ Technology Stack</h2>
+                <ul class="info-list">
+                    <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript (Vanilla)</li>
+                    <li><strong>Backend:</strong> Python, Flask</li>
+                    <li><strong>Machine Learning:</strong> scikit-learn, pandas, numpy</li>
+                    <li><strong>Text Processing:</strong> TF-IDF Vectorization, Natural Language Processing</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 LinkedIn Post Intelligence System. Built with ethical AI practices.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
