@@ -103,14 +103,16 @@ function displayResults(data) {
     const confidenceScore = document.getElementById('confidenceScore');
     confidenceScore.textContent = (data.confidence_score * 100).toFixed(1) + '%';
     
-    // Key Factors
+    // Key Factors with animation
     const keyFactors = document.getElementById('keyFactors');
     keyFactors.innerHTML = '';
     
     if (data.key_factors && Object.keys(data.key_factors).length > 0) {
+        let delay = 0;
         for (const [factor, value] of Object.entries(data.key_factors)) {
             const factorItem = document.createElement('div');
-            factorItem.className = 'factor-item';
+            factorItem.className = 'factor-item stagger-item';
+            factorItem.style.animationDelay = `${delay}s`;
             
             const factorName = document.createElement('span');
             factorName.className = 'factor-name';
@@ -124,18 +126,22 @@ function displayResults(data) {
             factorItem.appendChild(factorName);
             factorItem.appendChild(factorValue);
             keyFactors.appendChild(factorItem);
+            
+            delay += 0.1;
         }
     } else {
         keyFactors.innerHTML = '<p style="color: #6b7280;">No specific factors identified</p>';
     }
     
-    // Suggestions
+    // Suggestions with animation
     const suggestionsList = document.getElementById('suggestionsList');
     suggestionsList.innerHTML = '';
     
     if (data.suggestions && data.suggestions.length > 0) {
-        data.suggestions.forEach(suggestion => {
+        data.suggestions.forEach((suggestion, index) => {
             const li = document.createElement('li');
+            li.className = 'stagger-item';
+            li.style.animationDelay = `${index * 0.1}s`;
             li.textContent = suggestion;
             suggestionsList.appendChild(li);
         });
@@ -145,11 +151,14 @@ function displayResults(data) {
         suggestionsList.appendChild(li);
     }
     
-    // Show results section
+    // Show results section with animation
     resultsSection.style.display = 'block';
+    resultsSection.classList.add('reveal');
     
-    // Scroll to results
-    resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Scroll to results smoothly
+    setTimeout(() => {
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
     
     // Reset feedback form
     resetFeedbackForm();
