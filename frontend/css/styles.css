@@ -4,11 +4,27 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* LinkedIn Official Colors */
+    --linkedin-blue: #0A66C2;
+    --linkedin-dark-blue: #004182;
+    --linkedin-light-blue: #378FE9;
+    --linkedin-bg: #F3F2EF;
+    --linkedin-white: #FFFFFF;
+    --linkedin-text: #000000;
+    --linkedin-text-secondary: #666666;
+    --linkedin-border: #E0DFDC;
+    --linkedin-hover: #EDF3F8;
+    --linkedin-success: #057642;
+    --linkedin-warning: #915907;
+    --linkedin-error: #CC1016;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    color: #1a202c;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--linkedin-text);
+    background: var(--linkedin-bg);
     background-attachment: fixed;
     min-height: 100vh;
 }
@@ -21,14 +37,13 @@ body {
 
 /* Navigation */
 .navbar {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 1rem 0;
+    background: var(--linkedin-white);
+    border-bottom: 1px solid var(--linkedin-border);
+    padding: 0.5rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .navbar .container {
@@ -38,60 +53,70 @@ body {
 }
 
 .nav-brand {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--linkedin-blue);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-brand::before {
+    content: 'in';
+    display: inline-block;
+    background: var(--linkedin-blue);
+    color: white;
+    width: 34px;
+    height: 34px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 34px;
+    font-weight: 700;
+    font-size: 1.2rem;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: #4a5568;
+    color: var(--linkedin-text-secondary);
     font-weight: 600;
-    transition: all 0.3s;
+    font-size: 0.95rem;
+    transition: all 0.2s;
     position: relative;
-    padding: 0.5rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
 }
 
-.nav-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transition: width 0.3s;
+.nav-menu a:hover {
+    background: var(--linkedin-hover);
+    color: var(--linkedin-text);
 }
 
-.nav-menu a:hover::after,
-.nav-menu a.active::after {
-    width: 100%;
-}
-
-.nav-menu a:hover,
 .nav-menu a.active {
-    color: #667eea;
+    color: var(--linkedin-text);
+    border-bottom: 2px solid var(--linkedin-blue);
 }
 
 /* Hero Section */
 .hero-section {
-    padding: 4rem 0;
+    padding: 3rem 0;
     min-height: calc(100vh - 200px);
+    background: var(--linkedin-white);
 }
 
 .hero-content {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     animation: fadeInUp 0.8s ease-out;
+    background: var(--linkedin-white);
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 @keyframes fadeInUp {
@@ -106,158 +131,114 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--linkedin-text);
     margin-bottom: 1rem;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    line-height: 1.2;
+    line-height: 1.3;
 }
 
 .hero-description {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+    color: var(--linkedin-text-secondary);
     max-width: 650px;
-    margin: 0 auto 2.5rem;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-    line-height: 1.8;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
     text-decoration: none;
-    font-weight: 700;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: 600;
+    transition: all 0.2s;
     border: none;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
     position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
-}
-
-.btn:hover::before {
-    left: 100%;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: var(--linkedin-blue);
     color: #ffffff;
-    box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(245, 87, 108, 0.5);
+    background: var(--linkedin-dark-blue);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #ffffff;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    background: transparent;
+    color: var(--linkedin-blue);
+    border: 1px solid var(--linkedin-blue);
 }
 
 .btn-secondary:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+    background: var(--linkedin-hover);
+    border-color: var(--linkedin-dark-blue);
 }
 
 /* Feature Cards */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 2.5rem;
+    background: var(--linkedin-white);
+    border: 1px solid var(--linkedin-border);
+    border-radius: 8px;
+    padding: 2rem;
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-}
-
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-    opacity: 0;
-    transition: opacity 0.4s;
-}
-
-.feature-card:hover::before {
-    opacity: 1;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .feature-card:hover {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    transform: translateY(-10px) scale(1.02);
-    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    border-color: var(--linkedin-blue);
 }
 
 .feature-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
     display: inline-block;
-    transition: transform 0.4s;
+    transition: transform 0.2s;
 }
 
 .feature-card:hover .feature-icon {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.1);
 }
 
 .feature-card h3 {
-    color: #2d3748;
+    color: var(--linkedin-text);
     margin-bottom: 0.75rem;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .feature-card p {
-    color: #4a5568;
-    line-height: 1.8;
+    color: var(--linkedin-text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 /* Disclaimer Card */
 .disclaimer-card {
-    background: linear-gradient(135deg, rgba(255, 237, 213, 0.95) 0%, rgba(255, 214, 165, 0.95) 100%);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(251, 191, 36, 0.5);
-    border-radius: 20px;
-    padding: 2.5rem;
+    background: #FFF4E6;
+    border: 1px solid #FFE4B3;
+    border-radius: 8px;
+    padding: 2rem;
     margin-top: 2rem;
-    box-shadow: 0 10px 40px rgba(251, 191, 36, 0.2);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
-
-.disclaimer-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
@@ -305,19 +286,17 @@ body {
 }
 
 .analysis-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 2.5rem;
+    background: var(--linkedin-white);
+    border: 1px solid var(--linkedin-border);
+    border-radius: 8px;
+    padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s;
 }
 
 .analysis-card:hover {
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 /* Form Styles */
@@ -327,51 +306,48 @@ body {
 
 .form-group label {
     display: block;
-    font-weight: 700;
-    color: #2d3748;
-    margin-bottom: 0.75rem;
-    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--linkedin-text);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
 .form-group textarea {
     width: 100%;
-    padding: 1.25rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 15px;
+    padding: 1rem;
+    border: 1px solid var(--linkedin-border);
+    border-radius: 4px;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.95rem;
     resize: vertical;
-    transition: all 0.3s;
-    background: #ffffff;
+    transition: all 0.2s;
+    background: var(--linkedin-white);
 }
 
 .form-group textarea:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
-    transform: translateY(-2px);
+    border-color: var(--linkedin-blue);
+    box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.1);
 }
 
 .char-counter {
     text-align: right;
-    color: #718096;
-    font-size: 0.9rem;
+    color: var(--linkedin-text-secondary);
+    font-size: 0.85rem;
     margin-top: 0.5rem;
-    font-weight: 600;
 }
 
 /* Results Section */
 .results-section {
-    margin-top: 3rem;
+    margin-top: 2rem;
     animation: fadeInUp 0.6s ease-out;
 }
 
 .results-section h2 {
-    font-size: 2rem;
-    color: #ffffff;
+    font-size: 1.5rem;
+    color: var(--linkedin-text);
     margin-bottom: 1.5rem;
-    font-weight: 800;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
 }
 
 .results-grid {
@@ -382,47 +358,44 @@ body {
 }
 
 .result-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s;
+    background: var(--linkedin-white);
+    border: 1px solid var(--linkedin-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s;
 }
 
 .result-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .result-card h3 {
-    color: #2d3748;
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-    font-weight: 700;
+    color: var(--linkedin-text);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 /* Engagement Badge */
 .engagement-card {
     text-align: center;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
 }
 
 .engagement-badge {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 .engagement-level {
     display: inline-block;
-    padding: 1.5rem 3rem;
-    border-radius: 50px;
-    font-size: 1.8rem;
-    font-weight: 800;
+    padding: 1rem 2rem;
+    border-radius: 24px;
+    font-size: 1.5rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    letter-spacing: 0.5px;
+    animation: scaleIn 0.5s ease-out;
 }
 
 @keyframes scaleIn {
@@ -437,26 +410,23 @@ body {
 }
 
 .engagement-high {
-    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-    color: #065f46;
-    border: 3px solid #10b981;
+    background: #057642;
+    color: white;
 }
 
 .engagement-medium {
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-    color: #92400e;
-    border: 3px solid #f59e0b;
+    background: #915907;
+    color: white;
 }
 
 .engagement-low {
-    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
-    color: #991b1b;
-    border: 3px solid #ef4444;
+    background: #CC1016;
+    color: white;
 }
 
 .confidence-score {
-    font-size: 1.3rem;
-    color: #4a5568;
+    font-size: 1.1rem;
+    color: var(--linkedin-text-secondary);
     margin-top: 1rem;
 }
 
@@ -465,8 +435,9 @@ body {
 }
 
 .confidence-score .value {
-    font-weight: 800;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-weight: 700;
+    color: var(--linkedin-blue);
+}
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -762,9 +733,8 @@ body {
 }
 
 .footer p {
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 600;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    color: var(--linkedin-text-secondary);
+    font-size: 0.9rem;
 }
 
 /* Loading State */
@@ -773,7 +743,7 @@ body {
 }
 
 #predictBtn:disabled {
-    background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%);
+    background: #cbd5e0;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
@@ -868,97 +838,93 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
 }
 
 .particle {
     position: absolute;
-    animation: float-particle 15s infinite;
+    animation: float-particle 20s infinite;
     opacity: 0;
 }
 
 /* Particle Sizes */
 .particle.small {
-    width: 8px;
-    height: 8px;
-    filter: blur(2px);
+    width: 30px;
+    height: 30px;
 }
 
 .particle.medium {
-    width: 16px;
-    height: 16px;
-    filter: blur(3px);
+    width: 45px;
+    height: 45px;
 }
 
 .particle.large {
-    width: 24px;
-    height: 24px;
-    filter: blur(4px);
+    width: 60px;
+    height: 60px;
 }
 
-/* Circle Particles */
+/* LinkedIn IN Logo Particles */
+.particle-linkedin {
+    background: var(--linkedin-blue);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8em;
+    box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
+}
+
+.particle-linkedin::before {
+    content: 'in';
+}
+
+.particle-linkedin.small {
+    font-size: 14px;
+}
+
+.particle-linkedin.medium {
+    font-size: 20px;
+}
+
+.particle-linkedin.large {
+    font-size: 28px;
+}
+
+/* Circle Particles - LinkedIn Blue */
 .particle-circle {
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    background: rgba(10, 102, 194, 0.15);
+    box-shadow: 0 0 20px rgba(10, 102, 194, 0.2);
 }
 
-/* Square Particles */
+/* Square Particles - LinkedIn Light Blue */
 .particle-square {
-    background: rgba(240, 147, 251, 0.5);
-    box-shadow: 0 0 20px rgba(240, 147, 251, 0.3);
+    background: rgba(55, 143, 233, 0.12);
+    box-shadow: 0 0 20px rgba(55, 143, 233, 0.15);
     border-radius: 3px;
 }
 
-/* Triangle Particles */
-.particle-triangle {
-    width: 0;
-    height: 0;
-    background: transparent;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 17px solid rgba(245, 87, 108, 0.5);
-    box-shadow: 0 0 20px rgba(245, 87, 108, 0.3);
+/* Connection Node Particles */
+.particle-node {
+    width: 12px;
+    height: 12px;
+    background: var(--linkedin-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(10, 102, 194, 0.4);
 }
 
-.particle-triangle.small {
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 10px solid rgba(245, 87, 108, 0.5);
-}
-
-.particle-triangle.medium {
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 17px solid rgba(245, 87, 108, 0.5);
-}
-
-.particle-triangle.large {
-    border-left: 14px solid transparent;
-    border-right: 14px solid transparent;
-    border-bottom: 24px solid rgba(245, 87, 108, 0.5);
-}
-
-/* Hexagon Particles */
-.particle-hexagon {
-    background: rgba(132, 250, 176, 0.5);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    box-shadow: 0 0 20px rgba(132, 250, 176, 0.3);
-}
-
-/* Star Particles */
-.particle-star {
-    background: rgba(255, 237, 213, 0.6);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    box-shadow: 0 0 25px rgba(255, 237, 213, 0.4);
-}
-
-/* Diamond Particles */
-.particle-diamond {
-    background: rgba(143, 211, 244, 0.5);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    box-shadow: 0 0 20px rgba(143, 211, 244, 0.3);
+.particle-node::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--linkedin-blue), transparent);
+    top: 50%;
+    left: 100%;
+    opacity: 0.3;
 }
 
 @keyframes float-particle {
@@ -967,10 +933,10 @@ body {
         opacity: 0;
     }
     10% {
-        opacity: 1;
+        opacity: 0.8;
     }
     90% {
-        opacity: 1;
+        opacity: 0.8;
     }
     100% {
         transform: translateY(-100vh) translateX(100px) rotate(360deg);
