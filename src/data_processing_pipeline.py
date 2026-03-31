@@ -1,7 +1,3 @@
-"""
-Data processing pipeline
-Run this script to process raw data and save to processed folder
-"""
 
 import sys
 from pathlib import Path
