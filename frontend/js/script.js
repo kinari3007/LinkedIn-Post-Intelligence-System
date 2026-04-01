@@ -101,7 +101,7 @@ function displayResults(data) {
     
     // Confidence Score
     const confidenceScore = document.getElementById('confidenceScore');
-    confidenceScore.textContent = (data.confidence_score * 100).toFixed(1) + '%';
+    confidenceScore.textContent = data.confidence.toFixed(1) + '%';
     
     // Key Factors with animation
     const keyFactors = document.getElementById('keyFactors');
